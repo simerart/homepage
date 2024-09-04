@@ -1,0 +1,31 @@
+P{
+    font-size:20px;
+    color:darkgreen;
+    background-color:chartreuse;
+    padding: 10px;
+    margin:30px;
+}
+.special {
+    border:20px groove bisque;
+    padding:30px;
+    background-color:antiquewhite;
+    text-align:center;
+}
+body {
+    background-color:bisque;
+    font-family:sans-serif;
+}
+h1 {
+    font-size:50px;
+    font-weight:normal;
+    font-style:italic;
+    
+}
+.highlight {
+border: 20px groove black;
+padding:10px;
+}
+img {
+    max-width:100%;;
+  
+}
