@@ -1,0 +1,48 @@
+body {
+    background-color: aquamarine;
+}
+img {
+    max-width:100%;
+}
+
+.block {
+    background: lightgreen;
+    border: 1px solid;
+    padding:10px;
+}
+
+.inline {
+    background: pink;
+    padding:10px;
+    margin: 10px;
+    width:200px;
+    display: inline-block;
+}
+.container {
+    background: olivedrab;
+    border:1px solid;
+    padding:10px;
+height: 600px;
+
+    display: flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* justify-content aligns items on the horizontal axis for row flexbox */
+
+
+    align-items: center;
+    /* a-items on the vertical axis for non-wrapping row flexbox */
+    align-content: center;
+    /* */
+    gap:20px;
+}
+
+
+
+.item {
+    background:oldlace;
+    border:1px solid;
+    padding:10px;
+    width:200px;
+}

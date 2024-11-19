@@ -1,0 +1,59 @@
+body {
+    background-color: aquamarine;
+}
+img {
+    max-width:100%;
+}
+* {
+
+    box-sizing: border- box;
+}
+    body {
+    background:lightblue;
+    transition: background •5s;
+ }
+    body.dark {
+    background: #60757C;
+
+ } 
+    img {
+    max-width: 100%;
+
+ } 
+    .menu{
+    background:lightblue;
+    position: fixed;
+    right: -200px;
+    top:0;
+    height: 100%; 
+    width:200px; 
+    padding:20px;
+    text-align: center;
+    transition:right .5s,  background .5;
+    }
+
+    .menu .active {
+    right:o;
+    }
+
+    .menu .glow{
+        background: lightpink;
+    }
+
+    .gear{
+        background: lightslategray; 
+        width:100px;
+        height: 100px;
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        transition: transform .5s;
+    }
+    .gear .spin {
+        transform: rotate (45deg);
+    }
+
+    .gear .glow{
+            background: lemonchiffon;
+    }
+

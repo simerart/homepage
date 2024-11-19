@@ -1,0 +1,153 @@
+*{
+    box-sizing: border-box;
+}
+body {
+    background: rgb(89, 154, 211);
+    transition: background 1s, font-size 1s;
+    color:blueviolet;
+}
+img {
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background-size: cover; /* Cover the entire area */
+    background-position: center;
+}
+.container{
+    max-width: 1100px;
+    margin: 0 auto;
+}
+Header{
+    border:1px solid;
+}
+footer{
+    border:1px solid;
+}
+header, footer, .left, .right, .center{
+    border:1px solid;
+    padding:20px;
+}
+header, footer{
+    text-align: center;
+}
+main{
+    display: flex;
+    margin: 10px 0;
+    gap:10px
+}
+.left, .right{
+    width: 25%;
+}
+.center{
+    width: 50%;
+}
+.left {
+    transition: background 1s;
+}
+.left:hover {
+    background-color: aquamarine;
+}
+p{
+    background-image: ;
+    max-width: 900px;
+}
+
+/* max = desktop first design */
+@media screen and (max-width: 900px) {
+    body {
+      background-image: black;
+    }
+    image {
+        
+    }
+    main{
+        flex-wrap: wrap;
+    }
+    .left{
+        width: 100%;
+    }
+    .center, .right{
+        width:calc(50% - 5px);
+    }
+    
+  }
+  
+  @media screen and (max-width: 600px) {
+    body {
+        background-color:url('imagesback.jpg');
+        font-size: 25px
+      }
+    
+      
+      
+      
+      .center, .right{
+          width:100%;
+      }
+  }
+
+
+
+
+  body {
+    margin: 0;
+    padding: 0;
+}
+
+.image-container {
+    width: 100%;
+    overflow: hidden; /* To avoid overflow */
+}
+
+.responsive-image {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Media queries to change the image based on screen size */
+@media (max-width: 600px) {
+    .responsive-image {
+        content: url('eeve1.png'); /* Change image for small screens */
+    }
+    
+}
+
+@media (min-width: 601px) and (max-width: 1200px) {
+    .responsive-image {
+        content: url('eeve2.png'); /* Change image for medium screens */
+    }
+}
+
+@media (min-width: 1201px) {
+    .responsive-image {
+        content: url('eeve3.png'); /* Default image for larger screens */
+    }
+}
+
+
+.background-container {
+    height: 100vh; /* Full height of the viewport */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    background-size: cover; /* Cover the entire area */
+    background-position: center; /* Center the image */
+}
+
+/* Default background for large screens */
+÷
+
+/* Background for medium screens */
+/* @media (max-width: 1200px) {
+    .background-container {
+        background-image: url('imagesback1.jpg');
+    }
+} */
+
+/* Background for small screens */
+/* xs */

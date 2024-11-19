@@ -1,0 +1,305 @@
+body {
+    background-color: aquamarine;
+}
+img {
+    max-width:100%;
+}
+import React from "react";
+import { render } from "react-dom";
+
+interface Props {
+  averageTrackLength: string;
+  numberOfTracks: number;
+  playlistLengthSeconds: number;
+  playlistLengthMinutes: number;
+  tracks: string[];
+}
+
+export const getAsDataURI = (text: string): string =>
+  `data:text/html;base64,${window.btoa(text)}`;
+
+// Replaces deprecated "noshade" attribute
+const noshadeStyle = {
+  height: "2px",
+  borderWidth: 0,
+  color: "gray",
+  backgroundColor: "gray",
+};
+
+// We use all kinds of non-standard attributes and tags. So we create these fake
+// components to trick Typescript.
+const Body = (props: any) => {
+  // @ts-ignore
+  return <body {...props} />;
+};
+
+const Font = (props: any) => {
+  // @ts-ignore
+  return <font {...props} />;
+};
+
+const Hr = (props: any) => {
+  // @ts-ignore
+  return <hr {...props} />;
+};
+
+const Div = (props: any) => {
+  // @ts-ignore
+  return <div {...props} />;
+};
+
+const Table = (props: any) => {
+  // @ts-ignore
+  return <table {...props} />;
+};
+
+// TODO: Move <html> tag out to the string creation step in order
+// to avoid the warning.
+const Playlist = (props: Props) => (
+  <html>
+    <head>
+      <link rel="stylesheet" href="null" />
+      <style type="text/css">
+        {`
+        body { background: #000040; }
+        .para1 { margin-top: -42px; margin-left: 145px; margin-right: 10px; font-family: "font2, Arial"; font-size: 30px; line-height: 35px; text-align: left; color: #E1E1E1; }
+        .para2 { margin-top: 15px; margin-left: 15px; margin-right: 50px; font-family: "font1, Arial Black"; font-size: 50px; line-height: 40px; text-align: left; color: #004080; }
+        `}
+      </style>
+      <title>Winamp Generated PlayList</title>
+    </head>
+    <Body bgcolor="#000080" topmargin="0" leftmargin="0" text="#FFFFFF">
+      <Div align="center">
+        <Div className="para2" align="center">
+          <p>WINAMP</p>
+        </Div>
+        <Div className="para1" align="center">
+          <p>playlist</p>
+        </Div>
+      </Div>
+      <Hr
+        align="left"
+        width="90%"
+        size="1"
+        color="#FFBF00"
+        style={noshadeStyle}
+      />
+      <Div align="right">
+        <Table border="0" cellSpacing="0" cellPadding="0" width="98%">
+          {/* Added <tbody> tag */}
+          <tbody>
+            <tr>
+              <td>
+                <small>
+                  <small>
+                    <Font face="Arial" color="#FFBF00">
+                      {props.numberOfTracks}
+                    </Font>
+                    <Font color="#409FFF" face="Arial">
+                      {" track in playlist, average track length: "}
+                    </Font>
+                    <Font face="Arial" color="#FFBF00">
+                      {props.averageTrackLength}
+                    </Font>
+                  </small>
+                </small>
+                <br />
+                <small>
+                  <small>
+                    <Font color="#409FFF" face="Arial">
+                      {"Playlist length: "}
+                    </Font>
+                    <Font face="Arial" color="#FFBF00">
+                      {props.playlistLengthMinutes}
+                    </Font>
+                    <Font color="#409FFF" face="Arial">
+                      {" minutes "}
+                    </Font>
+                    <Font face="Arial" color="#FFBF00">
+                      {props.playlistLengthSeconds}
+                    </Font>
+                    <Font color="#409FFF" face="Arial">
+                      {" second "}
+                    </Font>
+                    <br />
+                    <Font color="#409FFF" face="Arial">
+                      Right-click <a href="./">here</a> to save this HTML file.
+                    </Font>
+                  </small>
+                </small>
+              </td>
+            </tr>
+          </tbody>
+        </Table>
+      </Div>
+      <blockquote>
+        <p>
+          <Font color="#FFBF00" face="Arial">
+            <big>Playlist files:</big>
+          </Font>
+          {/* Added closing tag here */}
+        </p>
+        <ul>
+          <Font face="Arial" color="#FFFFFF">
+            <small>
+              {props.tracks.map(track => (
+                <span key={track}>
+                  {track}
+                  <br />
+                </span>
+              ))}
+              {/* Added closing tag here */}
+            </small>
+          </Font>
+        </ul>
+      </blockquote>
+      <Hr
+        align="left"
+        width="90%"
+        size="1"
+        color="#FFBF00"
+        style={noshadeStyle}
+      />
+    </Body>
+  </html>
+);
+
+const createPlaylistHTML = (props: Props): string => {
+  const node = document.createElement("div");
+  render(<Playlist {...props} />, node);
+  return node.innerHTML;
+};
+
+export const createPlaylistURL = (props: Props): string =>
+  getAsDataURI(createPlaylistHTML(props));
+
+
+
+
+
+
+
+
+
+
+
+  @font-face {
+    font-family: 'w95fa';
+    src: url(PixelOperator.ttf) format("truetype");
+  } 
+  
+  @font-face {
+    font-family: 'utonium';
+    src: url(OldEnglishGothicPixelRegular-ow2Bo.ttf);
+  }
+  
+  @font-face {
+    font-family: '04B_30';
+    src: url(PixelOperator.ttf);
+  }
+  
+  @font-face {
+    font-family: 'pixel-bubble';
+    src: url(pixelbubble.TTF);
+  }
+  
+  :root {
+    text-transform: lowercase;
+    letter-spacing: -0.5px;
+  }
+  
+  html {
+    cursor: url(images/cursor.png), auto !important;
+  }
+  
+  button:hover {
+    cursor: url(images/cursorhover.png), auto !important;
+  }
+  
+  a:hover {
+    cursor: url(images/cursorhover.png), auto !important;
+  }
+  
+  body-alternative-pink {
+    --background: url("https://i.pinimg.com/236x/00/56/c8/0056c86c2606ff1b933b07cd63f0d590.jpg");
+    --contrastbg: #fffbf9;
+    --lightest: #f6d9d9;
+    --light: #D6B2B2;
+    --shadow: #c48c8c;
+    --dark: #845555;
+    --darkest: #26120b;
+  }
+  
+  body {
+    --background: url("https://i.imgur.com/yhjPmVH.jpg");
+    --contrastbg: #EAE1CC;
+    --lightest: #EAE1CC;
+    --light: #acbcae;
+    --mid: #78a185;
+    --shadow: #768677;
+    --dark: #4a564a;
+    --darkest: #191f19;
+  }
+  
+  
+  ::selection {
+    background-color: var(--shadow);
+    color: var(--contrastbg);
+  }
+  
+  ::-webkit-scrollbar {
+    width: 15px;
+    height: 15px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: white;
+    background-image: url('https://i.imgur.com/firO49n.png');
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--light);
+    border: 2px solid var(--dark);
+    border-top: 2px solid var(--lighter);
+    border-left: 2px solid var(--lighter);
+  }
+  
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--shadow);
+    box-shadow: none;
+    background-image: none;
+    border: 2px solid var(--light);
+    border-top: 2px solid var(--dark);
+    border-left: 2px solid var(--dark);
+  }
+  
+  ::-webkit-scrollbar-button {
+    background-image: url('https://i.imgur.com/yzJJ1bz.png');
+    height: 15px;
+    width: 15px;
+  }
+  
+  ::-webkit-scrollbar-button:vertical:start {
+    background-position: -45px 0px;
+  }
+  
+  ::-webkit-scrollbar-button:vertical:end {
+    background-position: 0px 0px;
+  }
+  
+  .subtitle {
+    font-family: '04B_30';
+    font-weight: bolder;
+    border: 1px solid #c0cdb2;
+    border-left: 1px solid var(--dark);
+    border-top: 1px solid var(--dark);
+    padding: 2px;
+    background-color: var(--light);
+  }
+  
+  .subtitle {
+    color: var(--lightest);
+    text-shadow:-1px -1px 0 var(--darkest),1px -1px 0 var(--darkest),-1px 1px 0 var(--darkest),1px 1px 0 var(--darkest); 
+    text-decoration: underline;
+    background-color: var(--shadow);
+  }
